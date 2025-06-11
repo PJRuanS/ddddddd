@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html>Add commentMore actions
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Você me ama?</title>
   <style>
     /* Estilos gerais */
+    body {
+      font-family: Arial, sans-serif;
+    /* GERAL */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,7 +18,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-image: url('https://placekitten.com/1080/1920'); /* Gatinho fofo */
       background-size: cover;
       background-position: center;
@@ -35,29 +40,40 @@
       padding: 20px;
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      width: 90%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
       max-width: 400px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       color: #333;
+      margin-bottom: 30px;
     }
 
     .buttons {
       display: flex;
+      justify-content: space-around;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 15px;
     }
 
     .buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2rem;
       flex: 1;
       padding: 12px;
       font-size: 1.1rem;
       text-decoration: none;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s;
       color: white;
       background-color: #ff69b4;
       border-radius: 10px;
@@ -66,6 +82,7 @@
     }
 
     .buttons a:hover {
+      background-color: #0056b3;
       background-color: #ff1493;
     }
 
@@ -73,6 +90,16 @@
     @media (max-width: 768px) {
       .container {
         width: 90%;
+      }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .buttons a {
+        font-size: 1rem;
       }
     }
 
@@ -83,18 +110,8 @@
 
       .buttons a {
         font-size: 0.9rem;
+        padding: 8px 16px;
         padding: 10px;
       }
     }
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Você me ama? 🐱</h1>
-    <div class="buttons">
-      <a href="#">Sim</a>
-      <a href="#">Não</a>
-    </div>
-  </div>
-</body>
-</html>
