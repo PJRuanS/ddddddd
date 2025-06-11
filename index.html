@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Você me ama?</title>
   <style>
-    /* GERAL */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,8 +12,8 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
-      background-image: url('https://placekitten.com/1080/1920'); /* Gatinho fofo */
+      font-family: Arial, sans-serif;
+      background-image: url('https://placekitten.com/1080/1920');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -24,7 +23,6 @@
       align-items: center;
     }
 
-    /* CONTAINER CENTRAL */
     .container {
       background-color: rgba(255, 255, 255, 0.85);
       padding: 30px 20px;
@@ -33,6 +31,7 @@
       max-width: 400px;
       width: 90%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
     }
 
     h1 {
@@ -43,36 +42,37 @@
 
     .buttons {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
-      gap: 15px;
+      position: relative;
     }
 
-    .buttons a {
-      flex: 1;
-      padding: 12px;
-      font-size: 1.1rem;
-      text-decoration: none;
+    .buttons button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
       color: white;
       background-color: #ff69b4;
-      border-radius: 10px;
-      transition: background 0.3s ease;
-      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      position: relative;
     }
 
-    .buttons a:hover {
+    .buttons button:hover {
       background-color: #ff1493;
     }
 
-    /* RESPONSIVIDADE */
+    /* RESPONSIVO */
     @media (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
       }
 
-      .buttons a {
+      .buttons button {
         font-size: 1rem;
-        padding: 10px;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -81,9 +81,31 @@
   <div class="container">
     <h1>Você me ama?</h1>
     <div class="buttons">
-      <a href="https://pjruans.github.io/ddddddd/">Sim</a>
-      <a href="https://pjruans.github.io/ddddddd/">Não</a>
+      <button onclick="responderSim()">Sim</button>
+      <button id="btnNao" onmouseover="fugir()" onclick="fugir()">Não</button>
     </div>
   </div>
+
+  <script>
+    function responderSim() {
+      alert("Eu sabia! 😍");
+    }
+
+    function fugir() {
+      const btn = document.getElementById('btnNao');
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+
+      const maxX = container.clientWidth - btn.offsetWidth;
+      const maxY = container.clientHeight - btn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      btn.style.position = 'absolute';
+      btn.style.left = `${randomX}px`;
+      btn.style.top = `${randomY}px`;
+    }
+  </script>
 </body>
 </html>
